@@ -4,18 +4,18 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace DemoSignalR.Services
 {
-    public interface ISendMessage
+    public interface ISendMessageToClient
     {
         Task ReceiveMessage();
         Task SendMessageToGroup(string groupName, string messag);
     }
 
-    public class SendMessage : ISendMessage
+    public class SendMessageToClient : ISendMessageToClient
     {
 
         private readonly IHubContext<HubDemo> _hubContext;
 
-        public SendMessage(IHubContext<HubDemo> hubContext)
+        public SendMessageToClient(IHubContext<HubDemo> hubContext)
         {
             this._hubContext = hubContext;
         }

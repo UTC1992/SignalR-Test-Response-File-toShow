@@ -11,19 +11,19 @@ namespace DemoSignalR.Controllers
     [Route("[controller]")]
     public class SignalRDemo: ControllerBase
     {
-        private readonly ISendMessage _sendMessage;
+        private readonly ISendMessageToClient _sendMessageToClient;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public SignalRDemo(ISendMessage sendMessage, IHttpClientFactory httpClientFactory)
+        public SignalRDemo(ISendMessageToClient sendMessage, IHttpClientFactory httpClientFactory)
 		{
-            this._sendMessage = sendMessage;
+            this._sendMessageToClient = sendMessage;
             this._httpClientFactory = httpClientFactory;
 		}
 
         [HttpGet("SendMessageToClient")]
         public async Task<IActionResult> SendMessageToClient()
         {
-            await this._sendMessage.ReceiveMessage();
+            await this._sendMessageToClient.ReceiveMessage();
             return Ok();
         }
 

@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddSignalR(); // Add SignalR services
-builder.Services.AddScoped<ISendMessage, SendMessage>();
+builder.Services.AddScoped<ISendMessageToClient, SendMessageToClient>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
