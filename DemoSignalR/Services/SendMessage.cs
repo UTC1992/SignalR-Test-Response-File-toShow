@@ -22,7 +22,7 @@ namespace DemoSignalR.Services
 
         public async Task ReceiveMessage()
         {
-            await this._hubContext.Clients.All.SendAsync("ReceiveMessage", "User", "Hello, clients!");
+            await this._hubContext.Clients.All.SendAsync("ReceiveMessage", "User", "Hello, clients, I am back!");
         }
 
         public async Task SendMessageToGroup(string groupName, string message)

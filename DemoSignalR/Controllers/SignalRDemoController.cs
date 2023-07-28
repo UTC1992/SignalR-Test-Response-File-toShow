@@ -20,8 +20,15 @@ namespace DemoSignalR.Controllers
             this._httpClientFactory = httpClientFactory;
 		}
 
-        [HttpGet(Name = "SendMessageToClient")]
+        [HttpGet("SendMessageToClient")]
         public async Task<IActionResult> SendMessageToClient()
+        {
+            await this._sendMessage.ReceiveMessage();
+            return Ok();
+        }
+
+        [HttpGet("ShowFile")]
+        public async Task<IActionResult> ShowFile()
         {
             var urlFile = "https://happypaystorage.file.core.windows.net/happypayfilestorage/Comercio/0202519369/contrato.pdf?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2026-06-12T00:16:10Z&st=2023-06-15T16:16:10Z&spr=https&sig=Aoap%2FiyhnLaosNHTlMwVOvbYKc6Ea%2Btwv90ZmULRKoI%3D";
 
